@@ -1,0 +1,27 @@
+﻿@model EntityLayer.Concrete.ToDoList
+
+@{
+    ViewBag.Title = "AddToDoList";
+    Layout = "~/Views/Shared/_WriterLayout.cshtml";
+}
+
+<h1>Görev Ekleme</h1>
+<br />
+@using (Html.BeginForm("AddToDoList", "ToDoList", FormMethod.Post))
+{
+    <div class="form-group">
+        @Html.Label("Başlık")
+        @Html.TextBoxFor(x => x.Name, new { @class = "form-control" })
+        @Html.ValidationMessageFor(x => x.Name)
+        <br />
+        @Html.Label("İçerik")
+        @Html.TextAreaFor(x => x.Content, new { @class = "form-control" })
+        @Html.ValidationMessageFor(x => x.Content)
+        <br />
+        @Html.Label("Yaptım / Yapmadım")
+        @Html.CheckBoxFor(x => x.IsRead, new { @class = "form-control" })
+
+        <button class="btn btn-info">Görev Ekle</button>
+    </div>
+}
+

@@ -1,0 +1,31 @@
+﻿@model EntityLayer.Concrete.Book
+@{
+    ViewBag.Title = "Kitap EKle";
+    Layout = "~/Views/Shared/_WriterLayout.cshtml";
+}
+
+<h1>Kitap Ekleme</h1>
+<br />
+@using (Html.BeginForm("AddBook", "Book", FormMethod.Post))
+{
+    <div class="form-group">
+        @Html.Label("Kitap Adı")
+        @Html.TextBoxFor(x => x.Name, new { @class = "form-control" })
+        @Html.ValidationMessageFor(x => x.Name)
+        <br />
+        @Html.Label("Yazar Adı")
+        @Html.TextBoxFor(x => x.Author, new { @class = "form-control" })
+        @Html.ValidationMessageFor(x => x.Author)
+        <br />
+        @Html.Label("İçerik")
+        @Html.TextAreaFor(x => x.Content, new { @class = "form-control" })
+        @Html.ValidationMessageFor(x => x.Content)
+        <br />
+        @Html.Label("Okudum/Okumadım")
+        @Html.CheckBoxFor(x => x.IsRead, new { @class = "form-control" })
+        
+        <button class="btn btn-info">Kitap Ekle</button>
+    </div>
+}
+
+

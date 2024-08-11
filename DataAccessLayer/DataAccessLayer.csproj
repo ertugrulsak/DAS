@@ -1,0 +1,168 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="..\DijitalAjandaSitesi\packages\EntityFramework.6.4.4\build\EntityFramework.props" Condition="Exists('..\DijitalAjandaSitesi\packages\EntityFramework.6.4.4\build\EntityFramework.props')" />
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{86583081-B9CC-4397-ACD9-709A43BDE0C8}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>DataAccessLayer</RootNamespace>
+    <AssemblyName>DataAccessLayer</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <Deterministic>true</Deterministic>
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\DijitalAjandaSitesi\packages\EntityFramework.6.4.4\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\DijitalAjandaSitesi\packages\EntityFramework.6.4.4\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Abstract\IAboutDal.cs" />
+    <Compile Include="Abstract\ICategoryDal.cs" />
+    <Compile Include="Abstract\IContactDal.cs" />
+    <Compile Include="Abstract\IContentDal.cs" />
+    <Compile Include="Abstract\IBookDal.cs" />
+    <Compile Include="Abstract\IHeadingDal.cs" />
+    <Compile Include="Abstract\IMessageDal.cs" />
+    <Compile Include="Abstract\IMovieDal.cs" />
+    <Compile Include="Abstract\IRepository.cs" />
+    <Compile Include="Abstract\IToDoListDal.cs" />
+    <Compile Include="Abstract\ITvSerieDal.cs" />
+    <Compile Include="Abstract\IWriterDal.cs" />
+    <Compile Include="Concrete\Context.cs" />
+    <Compile Include="Concrete\Repositories\CategoryRepository.cs" />
+    <Compile Include="Concrete\Repositories\GenericRepository.cs" />
+    <Compile Include="Concrete\Repositories\WriterRepository.cs" />
+    <Compile Include="EntityFramework\EfAboutDal.cs" />
+    <Compile Include="EntityFramework\EfCategoryDal.cs" />
+    <Compile Include="EntityFramework\EfContactDal.cs" />
+    <Compile Include="EntityFramework\EfContentDal.cs" />
+    <Compile Include="EntityFramework\EfBookDal.cs" />
+    <Compile Include="EntityFramework\EfHeadingDal.cs" />
+    <Compile Include="EntityFramework\EfMessageDal.cs" />
+    <Compile Include="EntityFramework\EfMovieDal.cs" />
+    <Compile Include="EntityFramework\EfToDoListDal.cs" />
+    <Compile Include="EntityFramework\EfTvSerieDal.cs" />
+    <Compile Include="EntityFramework\EfWriterDal.cs" />
+    <Compile Include="Migrations\202406091232331_added_db.cs" />
+    <Compile Include="Migrations\202406091232331_added_db.Designer.cs">
+      <DependentUpon>202406091232331_added_db.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202406091306430_add_movie.cs" />
+    <Compile Include="Migrations\202406091306430_add_movie.Designer.cs">
+      <DependentUpon>202406091306430_add_movie.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202406091506584_mig_addtvSerie.cs" />
+    <Compile Include="Migrations\202406091506584_mig_addtvSerie.Designer.cs">
+      <DependentUpon>202406091506584_mig_addtvSerie.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202406091603373_add_date_movie.cs" />
+    <Compile Include="Migrations\202406091603373_add_date_movie.Designer.cs">
+      <DependentUpon>202406091603373_add_date_movie.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202406091612546_add_date_book_tvserie.cs" />
+    <Compile Include="Migrations\202406091612546_add_date_book_tvserie.Designer.cs">
+      <DependentUpon>202406091612546_add_date_book_tvserie.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202406091637177_add_fixed_book.cs" />
+    <Compile Include="Migrations\202406091637177_add_fixed_book.Designer.cs">
+      <DependentUpon>202406091637177_add_fixed_book.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202406091649377_fixed_book.cs" />
+    <Compile Include="Migrations\202406091649377_fixed_book.Designer.cs">
+      <DependentUpon>202406091649377_fixed_book.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202406091653177_fixed_movie_tvserie_datetime.cs" />
+    <Compile Include="Migrations\202406091653177_fixed_movie_tvserie_datetime.Designer.cs">
+      <DependentUpon>202406091653177_fixed_movie_tvserie_datetime.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202406091854529_add_toDoList.cs" />
+    <Compile Include="Migrations\202406091854529_add_toDoList.Designer.cs">
+      <DependentUpon>202406091854529_add_toDoList.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\EntityLayer\EntityLayer.csproj">
+      <Project>{21f71e05-7919-413a-b458-263312bc1c9a}</Project>
+      <Name>EntityLayer</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\202406091232331_added_db.resx">
+      <DependentUpon>202406091232331_added_db.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202406091306430_add_movie.resx">
+      <DependentUpon>202406091306430_add_movie.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202406091506584_mig_addtvSerie.resx">
+      <DependentUpon>202406091506584_mig_addtvSerie.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202406091603373_add_date_movie.resx">
+      <DependentUpon>202406091603373_add_date_movie.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202406091612546_add_date_book_tvserie.resx">
+      <DependentUpon>202406091612546_add_date_book_tvserie.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202406091637177_add_fixed_book.resx">
+      <DependentUpon>202406091637177_add_fixed_book.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202406091649377_fixed_book.resx">
+      <DependentUpon>202406091649377_fixed_book.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202406091653177_fixed_movie_tvserie_datetime.resx">
+      <DependentUpon>202406091653177_fixed_movie_tvserie_datetime.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202406091854529_add_toDoList.resx">
+      <DependentUpon>202406091854529_add_toDoList.cs</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\DijitalAjandaSitesi\packages\EntityFramework.6.4.4\build\EntityFramework.props')" Text="$([System.String]::Format('$(ErrorText)', '..\DijitalAjandaSitesi\packages\EntityFramework.6.4.4\build\EntityFramework.props'))" />
+    <Error Condition="!Exists('..\DijitalAjandaSitesi\packages\EntityFramework.6.4.4\build\EntityFramework.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\DijitalAjandaSitesi\packages\EntityFramework.6.4.4\build\EntityFramework.targets'))" />
+  </Target>
+  <Import Project="..\DijitalAjandaSitesi\packages\EntityFramework.6.4.4\build\EntityFramework.targets" Condition="Exists('..\DijitalAjandaSitesi\packages\EntityFramework.6.4.4\build\EntityFramework.targets')" />
+</Project>

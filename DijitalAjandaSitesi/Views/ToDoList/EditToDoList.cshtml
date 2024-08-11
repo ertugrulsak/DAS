@@ -1,0 +1,29 @@
+﻿
+@model EntityLayer.Concrete.ToDoList
+
+@{
+    ViewBag.Title = "EditToDoList";
+    Layout = "~/Views/Shared/_WriterLayout.cshtml";
+}
+
+<h2>Görev Güncelleme Sayfası</h2>
+@using (Html.BeginForm("EditToDoList", "ToDoList", FormMethod.Post))
+{
+    @Html.HiddenFor(x => x.Id)
+    @Html.HiddenFor(x => x.WriterID)
+    <div class="form-group">
+        @Html.Label("Görev Adı")
+        @Html.TextBoxFor(x => x.Name, new { @class = "form-control" })
+        @Html.ValidationMessageFor(x => x.Name)
+        <br />
+        @Html.Label("İçerik")
+        @Html.TextAreaFor(x => x.Content, new { @class = "form-control" })
+        @Html.ValidationMessageFor(x => x.Content)
+        <br />
+        @Html.Label("Yaptım / Yapmadım")
+        @Html.CheckBoxFor(x => x.IsRead, new { @class = "form-control" })
+
+        <button class="btn btn-info">Kaydet</button>
+    </div>
+}
+

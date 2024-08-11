@@ -1,0 +1,32 @@
+﻿@model EntityLayer.Concrete.TvSerie
+@{
+    ViewBag.Title = "EditTvSerie";
+    Layout = "~/Views/Shared/_WriterLayout.cshtml";
+}
+
+<h2>Dizi Güncelleme Sayfası</h2>
+@using (Html.BeginForm("EditTvSerie", "TvSerie", FormMethod.Post))
+{
+    @Html.HiddenFor(x => x.Id)
+    @Html.HiddenFor(x => x.WriterID)
+    <div class="form-group">
+        @Html.Label("Dizi Adı")
+        @Html.TextBoxFor(x => x.Name, new { @class = "form-control" })
+        @Html.ValidationMessageFor(x => x.Name)
+        <br />
+        @Html.Label("Yönetmen Adı")
+        @Html.TextBoxFor(x => x.Author, new { @class = "form-control" })
+        @Html.ValidationMessageFor(x => x.Author)
+        <br />
+        @Html.Label("İçerik")
+        @Html.TextAreaFor(x => x.Content, new { @class = "form-control" })
+        @Html.ValidationMessageFor(x => x.Content)
+        <br />
+        @Html.Label("İzledim / İzlemedim")
+        @Html.CheckBoxFor(x => x.IsRead, new { @class = "form-control" })
+
+        <button class="btn btn-info">Kaydet</button>
+    </div>
+}
+
+
